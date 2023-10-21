@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale: 1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: white;
+          }
+        .traffic-light {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px; /* Adjust the width to make it bigger */
+            background-color: black;
+            padding: 10px;
+            border-radius: 100px;
+        }
+
+        .light {
+            width: 200px; /* Adjust the width of each light to make them bigger */
+            height: 200px; /* Adjust the height of each light to make them bigger */
+            margin: 10px;
+            border-radius: 50%;
+            background-color: gray; /* Default color */
+        }
+
+        .red.active {
+            background-color: red;
+        }
+
+        .yellow.active {
+            background-color: yellow;
+        }
+
+        .green.active {
+            background-color: green;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            
+        }
+
+        .control-button {
+            padding: 5px 10px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="traffic-light">
+        <div id="red-light" class="light red"></div>
+        <div id="yellow-light" class="light yellow"></div>
+        <div id="green-light" class="light green"></div>
+        <div id="countdown"></div>
+    </div>
+
+    <div class="button-container">
+        <button class="control-button" onclick="setLight('red')">Red</button>
+        <button class="control-button" onclick="setLight('yellow')">Yellow</button>
+        <button class="control-button" onclick="setLight('green')">Green</button>
+    </div>
+
+    <script>
+        const red = document.getElementById('red-light');
+        const yellow = document.getElementById('yellow-light');
+        const green = document.getElementById('green-light');
+        let currentLight = 'red';
+
+        function setLight(light) {
+            Lightnow = light;
+            changeLight();
+        }
+
+        function changeLight() {
+            red.classList.remove('active');
+            yellow.classList.remove('active');
+            green.classList.remove('active');
+
+            switch (Lightnow) {
+                case 'red':
+                    red.classList.add('active');
+                    break;
+                case 'yellow':
+                    yellow.classList.add('active');
+                    break;
+                case 'green':
+                    green.classList.add('active');
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
